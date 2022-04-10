@@ -258,8 +258,8 @@ public class stepDefinition {
 			driver.findElement(By.xpath("//input[@id='react-contact_info-secondary_email']")).sendKeys("Jhon@mail.com");
     }
  
-    @When("^User verify same as mailing address$")
-    public void verify() throws Throwable {
+    	@When("^User verify same as mailing address$")
+  	public void verify() throws Throwable {
 //    			**************** Mailing Address  *********************88
 	
 	     	driver.findElement(By.xpath("//input[@id='react-contact_info-correspondence_address-copied']")).click();
@@ -278,10 +278,10 @@ public class stepDefinition {
 			
 			boolean hdbunit = driver.findElement(By.xpath("//input[@id='react-contact_info-correspondence_address-unit']")).isDisplayed();
 			Assert.assertTrue(hdbunit);
-    }
+  	  }
  
-    @Then("^User verify same main contact$")
-    public void user_verify_same_main_contact() throws Throwable {
+    	@Then("^User verify same main contact$")
+    	public void user_verify_same_main_contact() throws Throwable {
     	
 //    	***************	Letter Of Offer Addressee  ****************
     	
@@ -307,7 +307,7 @@ public class stepDefinition {
  		driver.findElement(By.xpath("//button[@id='next-btn']")).click();  
     			
 
-    }
+   	 }
    
 //    ***************** Mandatory Details ****************
 
@@ -352,9 +352,9 @@ public class stepDefinition {
 		driver.findElement(By.xpath("//button[@id='next-btn']")).click();  
 	}
  	
-    @Then("^User enter the cost$")
-    public void user_enter_the_cost() throws Throwable {
-    	System.out.println("Enter cost");
+    	@Then("^User enter the cost$")
+    	public void user_enter_the_cost() throws Throwable {
+    
 //		**************************  PROVIDE DETAILS OF COSTS  *******************
 //		**************** Office Space Rental ***********************
 		
@@ -408,7 +408,7 @@ public class stepDefinition {
 	    
 	    	driver.findElement(By.xpath("//button[@id='save-btn']")).click();
 	    	driver.findElement(By.xpath("//button[@id='next-btn']")).click();
-    }
+    	}
  
 //    *************************** Review and Submit ***********************
  
@@ -477,8 +477,8 @@ public class stepDefinition {
     	
 //		*********************** LOG OUT **********************
 		JavascriptExecutor jslogout = (JavascriptExecutor)driver;
-     	WebElement bgplogout = driver.findElement(By.xpath("//span[text()='LOG OUT']"));		     	    				
-     	jslogout.executeScript("arguments[0].click()", bgplogout);
+     		WebElement bgplogout = driver.findElement(By.xpath("//span[text()='LOG OUT']"));		     	    				
+     		jslogout.executeScript("arguments[0].click()", bgplogout);
     }
     
 }
