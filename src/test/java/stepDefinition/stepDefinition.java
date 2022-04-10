@@ -22,14 +22,14 @@ public class stepDefinition {
 
 	WebDriver driver;	
 	@Given("^User is on Login page and user will login with valid user name password$")
-    public void user_is_on_login_page_and_user_will_login_with_valid_user_name_password() throws Throwable {
+   	 public void user_is_on_login_page_and_user_will_login_with_valid_user_name_password() throws Throwable {
 		 
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\thars\\Chrome\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
-	        driver.get("https://qa-internet.bgp.onl/");
-	        driver.manage().window().maximize();
+	                driver.get("https://qa-internet.bgp.onl/");
+	                driver.manage().window().maximize();
 			  
-	        JavascriptExecutor js = (JavascriptExecutor)driver;
+	                JavascriptExecutor js = (JavascriptExecutor)driver;
 			WebElement element = driver.findElement(By.xpath("(//input[@id='signInFormUsername'])[1]"));
 			js.executeScript("arguments[0].value='public'", element);		
 			
@@ -39,51 +39,51 @@ public class stepDefinition {
 			
 			JavascriptExecutor js1 = (JavascriptExecutor)driver;
 			WebElement element2 = driver.findElement(By.xpath("(//input[@name='signInSubmitButton'])[1]"));
-		    js1.executeScript("arguments[0].click()", element2);
+		        js1.executeScript("arguments[0].click()", element2);
     
-			  boolean homepage = driver.findElement(By.id("sgds-nav-start")).isDisplayed();
-			  Assert.assertTrue(homepage);
+			boolean homepage = driver.findElement(By.id("sgds-nav-start")).isDisplayed();
+			Assert.assertTrue(homepage);
 				   
- 			 driver.findElement(By.id("login-button")).click();
+ 			driver.findElement(By.id("login-button")).click();
 			 
 //	         ********************   Manual login page	  **********************  
 			 
-			 boolean corppass = driver.findElement(By.xpath("//*[text()='Manual Log In']")).isDisplayed();
-			 Assert.assertTrue(corppass);
+			boolean corppass = driver.findElement(By.xpath("//*[text()='Manual Log In']")).isDisplayed();
+			Assert.assertTrue(corppass);
 	 
 			driver.findElement(By.xpath("(//input[@id='entityId'])[1]")).sendKeys("BGPQEDEMO");	    
-		    driver.findElement(By.xpath("(//input[@id='userId'])[1]")).sendKeys("S1234567A");
-		    driver.findElement(By.xpath("(//input[@id='userRole'])[1]")).sendKeys("Acceptor");
-		    driver.findElement(By.xpath("(//input[@id='userFullName'])[1]")).sendKeys("Tan Ah Kow");
-		    driver.findElement(By.xpath("(//button[@type='submit'])")).click();
+			driver.findElement(By.xpath("(//input[@id='userId'])[1]")).sendKeys("S1234567A");
+		   	driver.findElement(By.xpath("(//input[@id='userRole'])[1]")).sendKeys("Acceptor");
+		    	driver.findElement(By.xpath("(//input[@id='userFullName'])[1]")).sendKeys("Tan Ah Kow");
+		   	driver.findElement(By.xpath("(//button[@type='submit'])")).click();
 	       
-    }
+	    }
 
- @When("^User enter into the new grant$")
-    public void user_enter_into_the_new_grant() throws Throwable {
+	@When("^User enter into the new grant$")
+    	public void user_enter_into_the_new_grant() throws Throwable {
      
-	 	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		  JavascriptExecutor newgrant = (JavascriptExecutor)driver;
-		  WebElement getngrant = driver.findElement(By.xpath("//*[text()='Get new grant']"));
-		  newgrant.executeScript("arguments[0].click()", getngrant);
+	 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		 	JavascriptExecutor newgrant = (JavascriptExecutor)driver;
+		  	WebElement getngrant = driver.findElement(By.xpath("//*[text()='Get new grant']"));
+		  	newgrant.executeScript("arguments[0].click()", getngrant);
        		 
-    }
+    	}
  	
-    @Then("^User will apply and proceed to the eligibility$")
-    public void user_will_apply_and_proceed_to_the_eligibility() throws Throwable {
+    	@Then("^User will apply and proceed to the eligibility$")
+    	public void user_will_apply_and_proceed_to_the_eligibility() throws Throwable {
     	
     	
-	     boolean myGbackText = driver.findElement(By.xpath("//span[@class='back-text']")).isDisplayed();
-	     Assert.assertTrue(myGbackText);
+	    		boolean myGbackText = driver.findElement(By.xpath("//span[@class='back-text']")).isDisplayed();
+	     		Assert.assertTrue(myGbackText);
 	    
-	     JavascriptExecutor pickselect = (JavascriptExecutor)driver;
-         WebElement pickselector = driver.findElement(By.xpath("(//div[@class='itemname'])[7]"));		     	    				
-	     pickselect.executeScript("arguments[0].click()", pickselector);
+	    		JavascriptExecutor pickselect = (JavascriptExecutor)driver;
+         		WebElement pickselector = driver.findElement(By.xpath("(//div[@class='itemname'])[7]"));		     	    				
+	    		pickselect.executeScript("arguments[0].click()", pickselector);
 	
 //	    	***************** Landed in I need this grant as overseas or SG  ****************
 	    	
-		    JavascriptExecutor pickarea = (JavascriptExecutor)driver;
-		    WebElement pickgrant = driver.findElement(By.xpath("(//div[@class='itemname'])[1]"));
+		    	JavascriptExecutor pickarea = (JavascriptExecutor)driver;
+		   	WebElement pickgrant = driver.findElement(By.xpath("(//div[@class='itemname'])[1]"));
 			pickarea.executeScript("arguments[0].click()", pickgrant);
 	     
 		
@@ -101,60 +101,58 @@ public class stepDefinition {
 //	      	*********** Click the Proceed in the GRANT ACTIONS  *********************
 			driver.findElement(By.id("keyPage-form-button")).click();
 	    
-    }
+  	  }
     
  	@When("^User verify the eligibility and faq$")
-    public void user_verify_the_eligibility_and_faq() throws Throwable {
+  	  public void user_verify_the_eligibility_and_faq() throws Throwable {
     
-	 	String parentWindow = driver.getWindowHandle();
+	 		String parentWindow = driver.getWindowHandle();
 				
-		JavascriptExecutor registersgno = (JavascriptExecutor)driver;
-		WebElement optapplicantno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[2]"));
-		registersgno.executeScript("arguments[0].click()", optapplicantno);
+			JavascriptExecutor registersgno = (JavascriptExecutor)driver;
+			WebElement optapplicantno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[2]"));
+			registersgno.executeScript("arguments[0].click()", optapplicantno);
 		
-		boolean sgisno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[2]")).isEnabled();
-		Assert.assertTrue(sgisno);
-		driver.findElement(By.xpath("(//a[text()='FAQ'])[1]")).click();
+			boolean sgisno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[2]")).isEnabled();
+			Assert.assertTrue(sgisno);
+			driver.findElement(By.xpath("(//a[text()='FAQ'])[1]")).click();
 		
 							 
-		 int winHandleNum = driver.getWindowHandles().size();
-				 if(winHandleNum > 1)
-				 {
+		 	int winHandleNum = driver.getWindowHandles().size();
+				if(winHandleNum > 1)
+					 {
 					 for(String winHandle : driver.getWindowHandles())
 					 	{
 						 	driver.switchTo().window(winHandle);
-					 	}
-		
-				 }
-		 driver.close();
-		 driver.switchTo().window(parentWindow);
+				 		}
+					 }
+		 	driver.close();
+		 	driver.switchTo().window(parentWindow);
 				 
 //****************** selecting yes for Singapore ************** 
 										
-		JavascriptExecutor registersgy = (JavascriptExecutor)driver;
-		WebElement optapplicanty = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[1]"));
-		registersgy.executeScript("arguments[0].click()", optapplicanty);
+			JavascriptExecutor registersgy = (JavascriptExecutor)driver;
+			WebElement optapplicanty = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[1]"));
+			registersgy.executeScript("arguments[0].click()", optapplicanty);
 		
 		
 //********	verify the second FAQ for sales turnover less than or equal to S$100m and employment size less than or equal to 200
 		
-		JavascriptExecutor salesturnno = (JavascriptExecutor)driver;
-		WebElement optsalesturnno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[4]"));
-		salesturnno.executeScript("arguments[0].click()", optsalesturnno);
+			JavascriptExecutor salesturnno = (JavascriptExecutor)driver;
+			WebElement optsalesturnno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[4]"));
+			salesturnno.executeScript("arguments[0].click()", optsalesturnno);
 		
-		boolean salturno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[4]")).isEnabled();
-		Assert.assertTrue(salturno);
-		driver.findElement(By.xpath("(//a[text()='FAQ'])[2]")).click();
+			boolean salturno = driver.findElement(By.xpath("(//span[@class ='radiobutton'])[4]")).isEnabled();
+			Assert.assertTrue(salturno);
+			driver.findElement(By.xpath("(//a[text()='FAQ'])[2]")).click();
 									 
-		 int winHandleNum1 = driver.getWindowHandles().size();
-				 if(winHandleNum1 > 1)
-				 {
-					 for(String winHandle : driver.getWindowHandles())
-					 	{
-						 	driver.switchTo().window(winHandle);
-					 	}
-			
-				 }
+		 	int winHandleNum1 = driver.getWindowHandles().size();
+				if(winHandleNum1 > 1)
+					 {
+						for(String winHandle : driver.getWindowHandles())
+							{
+							 	driver.switchTo().window(winHandle);
+					 		}
+				 	}
 			driver.close();
 			driver.switchTo().window(parentWindow);
 
@@ -174,14 +172,13 @@ public class stepDefinition {
 		
 							 
 			int winHandleNum3 = driver.getWindowHandles().size();
-					if(winHandleNum3 > 1)
-						{
-							for(String winHandle : driver.getWindowHandles())
-								{
-									driver.switchTo().window(winHandle);
-								}
-			
-						}
+				if(winHandleNum3 > 1)
+					{
+						for(String winHandle : driver.getWindowHandles())
+							{
+								driver.switchTo().window(winHandle);
+							}
+					}
 			 driver.close();
 			 driver.switchTo().window(parentWindow);
 
@@ -202,13 +199,13 @@ public class stepDefinition {
 			
 					 
 			int winHandleNum4 = driver.getWindowHandles().size();
-					if(winHandleNum4 > 1)
-						{
-							for(String winHandle : driver.getWindowHandles())
-								{
-									driver.switchTo().window(winHandle);
-								}
-						}
+				if(winHandleNum4 > 1)
+					{
+						for(String winHandle : driver.getWindowHandles())
+							{
+								driver.switchTo().window(winHandle);
+							}
+					}
 			 driver.close();
 			 driver.switchTo().window(parentWindow);
 				 
@@ -229,13 +226,13 @@ public class stepDefinition {
 		
 								 
 			int winHandleNum5 = driver.getWindowHandles().size();
-					if(winHandleNum5 > 1)
-						{
-							for(String winHandle : driver.getWindowHandles())
-								{
-									driver.switchTo().window(winHandle);
-								}
-						}
+				if(winHandleNum5 > 1)
+					{
+						for(String winHandle : driver.getWindowHandles())
+							{
+								driver.switchTo().window(winHandle);
+							}
+					}
 			 driver.close();
 			 driver.switchTo().window(parentWindow);
 				 
@@ -247,13 +244,13 @@ public class stepDefinition {
 	 }
 
  	@Then("^User save and proceed$")
-    public void user_save_and_proceed() throws Throwable {
-	    	driver.findElement(By.id("save-btn")).click();
+	    public void user_save_and_proceed() throws Throwable {
+	    		driver.findElement(By.id("save-btn")).click();
 			driver.findElement(By.id("next-btn")).click(); 
 	    }
     
  	@Given("^User enter the contact details$")
-    public void user_enter_the_contact_details() throws Throwable {
+   	 public void user_enter_the_contact_details() throws Throwable {
 			driver.findElement(By.xpath("//input[@id='react-contact_info-name']")).sendKeys("Tharsini Kajan");
 			driver.findElement(By.xpath("//input[@id='react-contact_info-designation']")).sendKeys("Business");
 			driver.findElement(By.xpath("//input[@id='react-contact_info-phone']")).sendKeys("98786754");
@@ -307,7 +304,7 @@ public class stepDefinition {
     		Assert.assertTrue(samemail);
   		
     		driver.findElement(By.xpath("//button[@id='save-btn']")).click();
- 			driver.findElement(By.xpath("//button[@id='next-btn']")).click();  
+ 		driver.findElement(By.xpath("//button[@id='next-btn']")).click();  
     			
 
     }
@@ -315,7 +312,7 @@ public class stepDefinition {
 //    ***************** Mandatory Details ****************
 
  	@Given("^User enter the proposal$")
-    public void user_enter_the_proposal() throws Throwable {
+    	public void user_enter_the_proposal() throws Throwable {
     	
 //		*******************		SUBMIT YOUR PROPOSAL   *****************************888
 			driver.findElement(By.xpath("//input[@id='react-project-title']")).sendKeys("My Project");
@@ -331,7 +328,7 @@ public class stepDefinition {
 			driver.findElement(By.xpath("//button[@id='next-btn']")).click();
    }
    	@When("^User enter business impact$")
-    public void user_enter_business_impact() throws Throwable {
+    	public void user_enter_business_impact() throws Throwable {
     	
 //    	************************* EXPLAIN THE BUSINESS IMPACT **********************************************
 		boolean verbusimp = driver.findElement(By.xpath("//*[text()=' Mandatory field']")).isDisplayed();
@@ -370,57 +367,57 @@ public class stepDefinition {
 //		************** File upload for office space Rental ***********************
 		driver.findElement(By.xpath("//button[text()='Select Files']")).click();
 		WebElement browse1 = driver.findElement(By.xpath("//button[text()='Select Files']"));
-	    browse1.click(); 
+	  	browse1.click(); 
 		
-	    // creating object of Robot class
-	    Robot rb1 = new Robot();
-	    rb1.setAutoDelay(3000);
+	    	// creating object of Robot class
+	 	Robot rb1 = new Robot();
+	   	rb1.setAutoDelay(3000);
 	    
-	    // copying File path to Clipboard
-	    StringSelection str1 = new StringSelection("C:\\Users\\thars\\OneDrive\\Desktop\\Test.pdf");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str1, null);
-	 	rb1.setAutoDelay(3000);
+		// copying File path to Clipboard
+	   	StringSelection str1 = new StringSelection("C:\\Users\\thars\\OneDrive\\Desktop\\Test.pdf");
+	    	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str1, null);
+	    	rb1.setAutoDelay(3000);
 	 	
-	     // press Contol+V for pasting
-	     rb1.keyPress(KeyEvent.VK_CONTROL);
-	     rb1.keyPress(KeyEvent.VK_V);
+	    	// press Contol+V for pasting
+	     	rb1.keyPress(KeyEvent.VK_CONTROL);
+	     	rb1.keyPress(KeyEvent.VK_V);
 	 
-	    // release Contol+V for pasting
-	    rb1.keyRelease(KeyEvent.VK_CONTROL);
-	    rb1.keyRelease(KeyEvent.VK_V);
+	    	// release Contol+V for pasting
+	    	rb1.keyRelease(KeyEvent.VK_CONTROL);
+	    	rb1.keyRelease(KeyEvent.VK_V);
 	 	rb1.setAutoDelay(3000);
 	 	
-	    // for pressing and releasing Enter
-	    rb1.keyPress(KeyEvent.VK_ENTER);
-	    rb1.keyRelease(KeyEvent.VK_ENTER);  
+	    	// for pressing and releasing Enter
+	    	rb1.keyPress(KeyEvent.VK_ENTER);
+	    	rb1.keyRelease(KeyEvent.VK_ENTER);  
 	    
-	    rb1.setAutoDelay(3000);
+	    	rb1.setAutoDelay(3000);
 	  
-	     // press Contol+V for pasting
-	     rb1.keyPress(KeyEvent.VK_CONTROL);
-	     rb1.keyPress(KeyEvent.VK_V);
+	     	// press Contol+V for pasting
+	     	rb1.keyPress(KeyEvent.VK_CONTROL);
+	     	rb1.keyPress(KeyEvent.VK_V);
 	 
-	    // release Contol+V for pasting
-	    rb1.keyRelease(KeyEvent.VK_CONTROL);
-	    rb1.keyRelease(KeyEvent.VK_V);
+	    	// release Contol+V for pasting
+	    	rb1.keyRelease(KeyEvent.VK_CONTROL);
+	    	rb1.keyRelease(KeyEvent.VK_V);
 	 	rb1.setAutoDelay(3000);
 	 	
-	    // for pressing and releasing Enter
-	    rb1.keyPress(KeyEvent.VK_ENTER);
-	    rb1.keyRelease(KeyEvent.VK_ENTER);  
+	    	// for pressing and releasing Enter
+	    	rb1.keyPress(KeyEvent.VK_ENTER);
+	    	rb1.keyRelease(KeyEvent.VK_ENTER);  
 	    
-	    driver.findElement(By.xpath("//button[@id='save-btn']")).click();
-	    driver.findElement(By.xpath("//button[@id='next-btn']")).click();
+	    	driver.findElement(By.xpath("//button[@id='save-btn']")).click();
+	    	driver.findElement(By.xpath("//button[@id='next-btn']")).click();
     }
  
 //    *************************** Review and Submit ***********************
  
  	@Given("^User declare and review$")
-    public void user_declare_and_review() throws Throwable {
+    	public void user_declare_and_review() throws Throwable {
     	
 //		************************ DECLARE & ACKNOWLEDGE TERMS **************************
 	    
-    	JavascriptExecutor jsscroll = (JavascriptExecutor)driver;
+    		JavascriptExecutor jsscroll = (JavascriptExecutor)driver;
 		WebElement scrolldown = driver.findElement(By.xpath("(//span[@class='radiobutton'])[1]"));
 		jsscroll.executeScript("arguments[0].scrollIntoView(true);", scrolldown);
 		Thread.sleep(5000);
@@ -458,7 +455,7 @@ public class stepDefinition {
     }
 
  	@When("^User accept and submit$")
-    public void user_accept_and_submit() throws Throwable {
+   	 public void user_accept_and_submit() throws Throwable {
     	
 //    	*********************** ACCEPT and SUBMIT ***********************
 		
@@ -476,7 +473,7 @@ public class stepDefinition {
     }
 
  	@Then("^User logout$")
-    public void user_logout() throws Throwable {
+    	public void user_logout() throws Throwable {
     	
 //		*********************** LOG OUT **********************
 		JavascriptExecutor jslogout = (JavascriptExecutor)driver;
